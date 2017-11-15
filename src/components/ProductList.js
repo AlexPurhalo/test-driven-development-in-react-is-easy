@@ -1,17 +1,20 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
-const ProductList = ({ products }) => (
+const ProductList = ({ products, onProductSelect }) => (
 	<ul>
-		{products.map(({ id, name, brand }) =>
-			<li key={id}>{name}, {brand}</li>
+		{products.map((product) =>
+			<li key={product.id} onClick={() => onProductSelect(product)}>
+				{product.name}, {product.brand}
+			</li>
 		)}
 	</ul>
 )
 
 
 ProductList.propTypes = {
-	products: PropTypes.array.isRequired
+	products:        PropTypes.array.isRequired,
+	onProductSelect: PropTypes.func.isRequired
 };
 
 export default ProductList

@@ -1,10 +1,12 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
-const ProductList = (props) => (
-	<div>
-		ProductList
-	</div>
+const ProductList = ({ products }) => (
+	<ul>
+		{products.map(({ id, name, brand }) =>
+			<li key={id}>{name}, {brand}</li>
+		)}
+	</ul>
 )
 
 
